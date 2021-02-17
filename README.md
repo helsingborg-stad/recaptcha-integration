@@ -10,7 +10,7 @@ Google ReCAPTCHA v3 integration for Municipio and plugins
 Add hidden input to form.
 Google will populate the input with a hashed string.
 
-```
+```html
 <input type="hidden" class="g-recaptcha-response"
 id="g-recaptcha-response" name="g-recaptcha-response" value="" />
 ```
@@ -20,7 +20,7 @@ Get your reCaptcha secret keys and register your site domain at following addres
 https://developers.google.com/recaptcha
 
 Add keys to your config/functions file:
-```
+```php
 <?php
 
 define('G_RECAPTCHA_KEY', 'YOUR-RECAPTCHA-SITE-KEY');
@@ -31,7 +31,7 @@ define('G_RECAPTCHA_SECRET', 'YOUR-RECAPTCHA-SECRET-KEY');
 
 #### PHP Function: initScripts()
 Includes the google reCaptcha javaScripts to the front end.
-```
+```php
 <?php
 
     use \HelsingborgStad\RecaptchaIntegration as Captcha;
@@ -49,7 +49,7 @@ Includes the google reCaptcha javaScripts to the front end.
 This function run the captcha validation before posting.
 In this example it runs before comments are posted.
 
-```
+```php
 <?php 
 
     use \HelsingborgStad\RecaptchaIntegration as Captcha;

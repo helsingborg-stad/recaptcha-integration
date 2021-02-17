@@ -10,9 +10,18 @@ class RecaptchaIntegration
 {
     /**
      * RecaptchaIntegration constructor.
-     * Enqueues the google script
      */
     public function __construct()
+    {
+        if (function_exists('add_action')) {
+            add_action('admin_notices', array($this, 'recaptchaConstants'));
+        }
+    }
+
+    /**
+     * Enqueues the google script
+     */
+    public static function initScripts()
     {
         Enqueue::script();
     }
@@ -26,7 +35,7 @@ class RecaptchaIntegration
     }
 
     /**
-     * Add admin notice if Google reCaptcha constants is missing
+     * Publish  admin notice if Google reCaptcha constants is missing
      */
     public static function recaptchaConstants()
     {
@@ -34,7 +43,7 @@ class RecaptchaIntegration
             return;
         }
 
-        $class = 'c-notice c-notice--warning';
+        $class = 'notice notice-warning';
         $message = __('Municipio: constant \'G_RECAPTCHA_KEY\' or \'G_RECAPTCHA_SECRET\' is not defined.', 'municipio');
         printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), esc_html($message));
     }

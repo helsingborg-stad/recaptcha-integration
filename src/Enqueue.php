@@ -6,8 +6,15 @@ namespace HelsingborgStad;
  * Class Enqueue
  * @package HelsingborgStad
  */
-class Enqueue
+class Enqueue extends RecaptchaIntegration
 {
+    /**
+     * Enqueue constructor.
+     */
+    public function __construct() {
+        parent::__construct();
+    }
+
     /**
      * Enqueue Google reCAPTCHA
      */

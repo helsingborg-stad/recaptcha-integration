@@ -1,14 +1,14 @@
 # recaptcha-integration
 Google ReCAPTCHA v3 integration for Municipio and plugins
 
-## Install
+## Install with Composer
 ``` composer require helsingborg-stad/recaptcha-integration ```
 
-### Example for Wordpress:
+### Example howto integrate with Wordpress:
 
 #### HTML:
 Add hidden input to form.
-Google will populate the input with a hashed atring.
+Google will populate the input with a hashed string.
 
 ```
 <input type="hidden" class="g-recaptcha-response"
@@ -68,7 +68,8 @@ In this example it runs before comments are posted.
 ?>    
 ```
 
-Production example how we use the package:
+#### More Code examples
+Example how we use the package:
 https://github.com/helsingborg-stad/Municipio/blob/3.0/develop/library/Comment/CommentsFilters.php
 
 That's all folk :-)

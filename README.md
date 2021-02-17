@@ -23,8 +23,8 @@ Add keys to your config/functions file:
 ```php
 <?php
 
-define('G_RECAPTCHA_KEY', 'YOUR-RECAPTCHA-SITE-KEY');
-define('G_RECAPTCHA_SECRET', 'YOUR-RECAPTCHA-SECRET-KEY');
+    define('G_RECAPTCHA_KEY', 'YOUR-RECAPTCHA-SITE-KEY');
+    define('G_RECAPTCHA_SECRET', 'YOUR-RECAPTCHA-SECRET-KEY');
 
 ?>
 ```
@@ -72,4 +72,4 @@ In this example it runs before comments are posted.
 Example how we use the package:
 https://github.com/helsingborg-stad/Municipio/blob/3.0/develop/library/Comment/CommentsFilters.php
 
-That's all folk :-)
+That's all folks :-)

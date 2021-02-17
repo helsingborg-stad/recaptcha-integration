@@ -1,0 +1,18 @@
+{
+  "name": "helsingborg-stad/recaptcha-integration",
+  "description": "Google ReCAPTCHA v3 integration for Municipio and plugins",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Johan Silvergrund",
+      "email": "johan.silvergrund@helsingborg.se"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "HelsingborgStad\\": "src"
+    }
+  },
+  "minimum-stability": "stable"
+}

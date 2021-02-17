@@ -20,7 +20,8 @@ class RecaptchaIntegration
     /**
      * Initializes the validation
      */
-    public static function initCaptcha(){
+    public static function initCaptcha()
+    {
         Validation::validateGoogleResponse();
     }
 

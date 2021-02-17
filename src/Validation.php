@@ -30,7 +30,7 @@ class Validation
     public static function validateGoogleResponse(): bool
     {
         $response = isset($_POST['g-recaptcha-response']) ? esc_attr($_POST['g-recaptcha-response']) : '';
-        $validate  = self::getGoogleVerification($response);
+        $validate = self::getGoogleVerification($response);
 
         if ($validate->score >= 0.5) {
             return $validate->success;

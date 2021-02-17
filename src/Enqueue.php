@@ -1,10 +1,10 @@
 <?php
 
-namespace RecaptchaIntegration;
+namespace HelsingborgStad;
 
 /**
  * Class Enqueue
- * @package RecaptchaIntegration
+ * @package HelsingborgStad
  */
 class Enqueue
 {
@@ -13,7 +13,6 @@ class Enqueue
      */
     public static function script()
     {
-        echo "JOHANS";
         if (defined('G_RECAPTCHA_KEY') && defined('G_RECAPTCHA_SECRET')) {
 
             wp_enqueue_script('municipio-google-recaptcha',

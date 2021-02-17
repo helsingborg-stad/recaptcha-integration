@@ -1,10 +1,10 @@
 <?php
 
-namespace RecaptchaIntegration;
+namespace HelsingborgStad;
 
 /**
  * Class RecaptchaIntegration
- * @package RecaptchaIntegration
+ * @package HelsingborgStad
  */
 class RecaptchaIntegration
 {

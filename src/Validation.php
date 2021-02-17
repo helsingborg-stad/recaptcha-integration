@@ -1,10 +1,10 @@
 <?php
 
-namespace RecaptchaIntegration;
+namespace HelsingborgStad;
 
 /**
  * Class Validation
- * @package RecaptchaIntegration
+ * @package HelsingborgStad
  */
 class Validation
 {
@@ -21,7 +21,6 @@ class Validation
             return json_decode($verify["body"]);
         }
     }
-
 
     /**
      * Validate reCaptcha response against google servers before save

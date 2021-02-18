@@ -158,14 +158,9 @@ If you prefer PHP classes, this is a simple example.
 ?>    
 ```
 
-## More about how Google reCaptcha v3 work.
+## More about how Google reCaptcha work.
+https://en.wikipedia.org/wiki/ReCAPTCHA
 
-- The end user requests a web page.
-- The web app or server returns the requested page, which includes reCAPTCHA v3 code.
-- Next, the user fills in the form and clicks on the submit button.
-- Before submitting the form data to the server, the reCAPTCHA v3 code on the client makes an AJAX call to the Google server and obtains a token. The important thing here is that we have to pass the action attribute with an appropriate value during the AJAX call. You should pass the value which identifies your form. This is the value which you'll use for verification on the server side, along with other parameters.
-- The token obtained in the previous step is submitted along with the other form data. In most cases, we append two hidden variables to the form, token and action, before the form is submitted.
-- Once the form is submitted, we have to perform the verification step to decide if the form is submitted by a human. As a first step, we’ll make a POST request to verify the response token. The POST request passes the token along with the Google secret to the Google server.
-- The response is a JSON object, and we’ll use it to decide if the form is submitted by a human. The format of the JSON object is shown in the following snippet.
+https://developers.google.com/recaptcha/docs/v3
 
 That's all folks :-)

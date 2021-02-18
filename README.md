@@ -40,7 +40,7 @@ Add keys to your config or functions.php file. Replace:
 ```
 
 ## Basic Wordpress example if you use functions.php
-Add this code snippet to the top of you functions.php file.
+Add the following code snippets to your functions.php file.
 
 ```php
 <?php

@@ -18,20 +18,21 @@ class Enqueue extends RecaptchaIntegration
 
     /**
      * Enqueue Google reCAPTCHA
-     */
-    /**
-     * Enqueue Google reCAPTCHA
+     * @return void
      */
     public static function script()
     {
         if (defined('G_RECAPTCHA_KEY') && defined('G_RECAPTCHA_SECRET')) {
 
+            // Google script
             wp_enqueue_script('municipio-google-recaptcha',
                 'https://www.google.com/recaptcha/api.js?render=' . G_RECAPTCHA_KEY, 20, 'dev', true
             );
 
+            // Inline script for captcha
             wp_add_inline_script('municipio-google-recaptcha', "
-            
+                
+                // Generate Captcha hash for validation and submit form
                 function validateClient(e, formId) {
                     e.preventDefault();
                     
@@ -44,7 +45,8 @@ class Enqueue extends RecaptchaIntegration
                         });
                     }
                 }
-            
+                
+                // Check forms that have the captcha turned on
                 var checkFormAttributes = document.querySelectorAll('form');
                 for (var i = 0; i < document.getElementsByTagName('form').length; i++) {
                     var formId = checkFormAttributes[i].getAttribute('id');

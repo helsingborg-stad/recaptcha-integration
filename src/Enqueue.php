@@ -31,30 +31,27 @@ class Enqueue extends RecaptchaIntegration
 
             // Inline script for captcha
             wp_add_inline_script('municipio-google-recaptcha', "
-                
-                // Generate Captcha hash for validation and submit form
-                function validateClient(e, formId) {
-                    e.preventDefault();
-                    
+               
+                function validateClient(formId) {
                     if (window.grecaptcha) {
                         grecaptcha.ready(function () {
                             grecaptcha.execute('" . G_RECAPTCHA_KEY . "', {action: 'submit'}).then(function (token) {
-                                document.getElementById(formId).querySelector('.g-recaptcha-response').value = token;
+                                if (document.getElementById(formId).querySelector('.g-recaptcha-response')) {
+                                    document.getElementById(formId).querySelector('.g-recaptcha-response').value = token;
+                                }
                                 document.forms[formId].submit();
                             });
                         });
                     }
                 }
                 
-                // Check forms that have the captcha turned on
-                var checkFormAttributes = document.querySelectorAll('form');
-                for (var i = 0; i < document.getElementsByTagName('form').length; i++) {
-                    var formId = checkFormAttributes[i].getAttribute('id');
-                    if (document.getElementById(formId).getAttribute('method').toLowerCase() === 'post') {
-                        if (document.getElementById(formId).getElementsByClassName('protectedByCaptcha')[0]){
-                            document.getElementById(formId).setAttribute('onsubmit', 'validateClient(event, formId);');
-                        }
-                    }
+                var forms = document.querySelectorAll('form');
+                for (var i = 0; i < forms.length; i++) {
+                    var formId = forms[i].getAttribute('id');
+                    addEventListener('submit', function(e){
+                        e.preventDefault();
+                        validateClient(formId);
+                    });
                 }
             ");
         }

@@ -31,28 +31,22 @@ class Enqueue extends RecaptchaIntegration
 
             // Inline script for captcha
             wp_add_inline_script('municipio-google-recaptcha', "
-               
-                function validateClient(formId) {
+                function setToken() {
                     if (window.grecaptcha) {
                         grecaptcha.ready(function () {
-                            grecaptcha.execute('" . G_RECAPTCHA_KEY . "', {action: 'submit'}).then(function (token) {
-                                if (document.getElementById(formId).querySelector('.g-recaptcha-response')) {
-                                    document.getElementById(formId).querySelector('.g-recaptcha-response').value = token;
+                            grecaptcha.execute('" . G_RECAPTCHA_KEY . "', {action: 'homepage'}).then(function (token) {
+                                var captcha = document.getElementsByClassName('g-recaptcha-response');
+                                for (var i = 0; i < captcha.length; i++) {
+                                    captcha[i].value = token;
                                 }
-                                document.forms[formId].submit();
                             });
                         });
                     }
                 }
                 
-                var forms = document.querySelectorAll('form');
-                for (var i = 0; i < forms.length; i++) {
-                    var formId = forms[i].getAttribute('id');
-                    addEventListener('submit', function(e){
-                        e.preventDefault();
-                        validateClient(formId);
-                    });
-                }
+                setInterval(function () {
+                    setToken();
+                }, 3000);
             ");
         }
     }

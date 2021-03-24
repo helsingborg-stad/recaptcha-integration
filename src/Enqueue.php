@@ -26,7 +26,7 @@ class Enqueue extends RecaptchaIntegration
 
             // Google script
             wp_enqueue_script('municipio-google-recaptcha',
-                'https://www.google.com/recaptcha/api.js?render=' . G_RECAPTCHA_KEY, 20, 'dev', true
+                'https://www.google.com/recaptcha/api.js?onload=setToken&render=' . G_RECAPTCHA_KEY, 20, 'dev', true
             );
 
             // Inline script for captcha
@@ -44,9 +44,11 @@ class Enqueue extends RecaptchaIntegration
                     }
                 }
                 
+                setToken();
+                
                 setInterval(function () {
                     setToken();
-                }, 3000);
+                }, 60000);
             ");
         }
     }

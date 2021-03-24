@@ -44,8 +44,6 @@ class Enqueue extends RecaptchaIntegration
                     }
                 }
                 
-                setToken();
-                
                 setInterval(function () {
                     setToken();
                 }, 60000);
